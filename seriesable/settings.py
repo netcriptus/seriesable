@@ -26,7 +26,7 @@ SECRET_KEY = '!lt1fi(89!go0pri@7rkzi8_1e$(*dfxu8udth%z%h-x7m2)6$'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CELERY_RESULT_BACKEND = 'rabbitmq'
 
 # Application definition
 

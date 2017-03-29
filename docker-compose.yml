@@ -8,8 +8,10 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - rabbitmq
     links:
       - db
+      - rabbitmq
 
   db:
     restart: always
@@ -31,3 +33,15 @@ services:
       - REPLICATION_USER=
       - REPLICATION_PASS=
       - REPLICATION_SSLMODE=
+
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
